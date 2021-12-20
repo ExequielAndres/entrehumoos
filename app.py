@@ -38,7 +38,7 @@ def Tabacos():
 
        
 
-        print (producto)
+        
         return redirect('/formulario/'+producto)
 
     else:
@@ -61,11 +61,66 @@ def Formulario(producto):
 def Correo(correo, producto):
 
     msg = Message('Solicitud de Compra', sender='tienda.entrehumoos@gmail.com', recipients = [correo])
-    msg.body = 'hola quiero'+producto+' a mi compra'
+    msg.body = 'Hola, tu solicitud:" '+producto+' " ha sido enviada a Entrehumoos y está siendo procesada. Solicitante: '+correo
     mail.send(msg)
 
 
     return redirect('/')
+
+
+
+@app.route('/papelillos', methods=['GET','POST'])
+
+
+def Papelillos():
+
+    if request.method == 'POST':
+        producto = request.form['carrito']
+
+       
+
+        
+        return redirect('/formulario/'+producto)
+
+    else:
+        return render_template('papelillos.html')
+
+
+
+@app.route('/parafernalia', methods=['GET','POST'])
+
+
+def Parafernalia():
+
+    if request.method == 'POST':
+        producto = request.form['carrito']
+
+       
+
+        
+        return redirect('/formulario/'+producto)
+
+    else:
+        return render_template('parafernalia.html')
+
+
+@app.route('/filtros', methods=['GET','POST'])
+
+
+def Filtros():
+
+    if request.method == 'POST':
+        producto = request.form['carrito']
+
+       
+
+        
+        return redirect('/formulario/'+producto)
+
+    else:
+        return render_template('filtros.html')
+
+
 
 
 
@@ -77,4 +132,5 @@ def Correo(correo, producto):
 
 if __name__ == '__main__':
     app.run(port=3000, debug=True)
+    
     
