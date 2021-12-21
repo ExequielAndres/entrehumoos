@@ -60,7 +60,7 @@ def Formulario(producto):
 
 def Correo(correo, producto):
 
-    msg = Message('Solicitud de Compra', sender='tienda.entrehumoos@gmail.com', recipients = [correo, "ventas.entrehumoos@gmaill.com"])
+    msg = Message('Solicitud de Compra', sender='tienda.entrehumoos@gmail.com', recipients = [correo, "ventas.entrehumoos@gmail.com"])
     msg.body = 'Hola, tu solicitud:" '+producto+' " ha sido enviada a Entrehumoos y está siendo procesada. Solicitante: '+correo
     mail.send(msg)
 
